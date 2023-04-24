@@ -3,7 +3,6 @@ package com.zgy.gmall.gmallusermangae.controller;
 import com.zgy.gmall.gmallusermangae.bean.UserInfo;
 import com.zgy.gmall.gmallusermangae.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,5 +23,24 @@ public class UserController {
     public String addUer(UserInfo userInfo){
         userService.addUser(userInfo);
         return "success";
+    }
+    @PostMapping("updateUser")
+    public String updateUser(UserInfo userInfo){
+        userService.updateUser(userInfo);
+        return "success";
+    }
+    @PostMapping("updateUserByName")
+    public String updateUserByName(UserInfo userInfo){
+        userService.updateUserByName(userInfo.getName(),userInfo);
+        return "success";
+    }
+    @PostMapping("delUser")
+    public String delUser(UserInfo userInfo){
+        userService.delUser(userInfo);
+        return "success";
+    }
+    @GetMapping("getUser")
+    public UserInfo getUser(String id){
+        return userService.getUserInfoById(id);
     }
 }
