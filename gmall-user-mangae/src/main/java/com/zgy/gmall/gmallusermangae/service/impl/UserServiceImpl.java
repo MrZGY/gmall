@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addUser(UserInfo userInfo) {
-
+        userMapper.insertSelective(userInfo);
     }
 
     @Override

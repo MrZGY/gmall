@@ -5,6 +5,7 @@ import com.zgy.gmall.gmallusermangae.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,5 +19,10 @@ public class UserController {
     @GetMapping("allusers")
     public List<UserInfo> getAllUsers() {
         return userService.getUserInfoListAll();
+    }
+    @PostMapping("addUser")
+    public String addUer(UserInfo userInfo){
+        userService.addUser(userInfo);
+        return "success";
     }
 }
